@@ -1,0 +1,6 @@
+<div class="card">
+    {{#if @card.fields.HeaderImageUrl}}
+      <Card::Image @imageSrc={{@card.fields.HeaderImageUrl}} />
+    {{/if}}
+    <Card::Details @headline={{@card.fields.Headline}} @subtitle={{@card.fields.Sub-headline}} />
+</div>

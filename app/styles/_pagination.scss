@@ -1,0 +1,16 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  row-gap: 10px;
+  line-height: 2rem;
+
+  .page {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 3px;
+    text-align: center;
+    margin: 0 10px;
+  }
+}

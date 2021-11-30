@@ -1,0 +1,5 @@
+<div class="pagination">
+  <FaIcon {{on "click" (fn @onChangePage "prev")}} @icon="angle-left" @size="2x" />
+  <div class="page">{{@numberOfPages}}</div>
+  <FaIcon {{on "click" (fn @onChangePage "next")}} @icon="angle-right" @size="2x" />
+</div>

@@ -1,0 +1,8 @@
+<div class="container">
+  {{#each this.data as |card|}}
+    <Card @card={{card}} />
+  {{/each}}
+</div>
+{{#unless this.isMobile}}
+  <Pagination @numberOfPages={{numberOfPages}} @onChangePage={{this.onChangePage}} />
+{{/unless}}
