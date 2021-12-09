@@ -1,6 +1,13 @@
-<div class="card">
-    {{#if @card.fields.HeaderImageUrl}}
-      <Card::Image @imageSrc={{@card.fields.HeaderImageUrl}} />
-    {{/if}}
-    <Card::Details @headline={{@card.fields.Headline}} @subtitle={{@card.fields.Sub-headline}} />
+<div class="filter drop-shadow border border-gray-200 rounded-lg w-80 space-x-3 card">
+  {{#if @card.image}}
+    <Card::Image @imageSrc={{@card.image}} @altText={{@card.title}} />
+  {{/if}}
+  <Card::Details @title={{@card.title}} @subtitle={{@card.subtitle}} />
 </div>
+
+<!--<div class="filter drop-shadow border border-gray-200 rounded-lg w-80 space-x-3 card">-->
+<!--    {{#if @card.fields.HeaderImageUrl}}-->
+<!--      <Card::Image @imageSrc={{@card.fields.HeaderImageUrl}} @altText={{@card.fields.Headline}} />-->
+<!--    {{/if}}-->
+<!--    <Card::Details @headline={{@card.fields.Headline}} @subtitle={{@card.fields.Sub-headline}} />-->
+<!--</div>-->

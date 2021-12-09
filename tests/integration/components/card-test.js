@@ -10,17 +10,18 @@ module('Integration | Component | card', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Card />`);
+    // const cardData = {
+    //   fields: {
+    //     'HeaderImageUrl': 'fake HeaderImageUrl',
+    //     'Headline': 'fake Headline',
+    //     'Sub-headline': 'fake Sub-headline'
+    //   }
+    // }
+    // this.set('card', cardData);
+    // await render(hbs`<Card @card={{cardData}} />`);
+    // await this.pauseTest();
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Card>
-        template block text
-      </Card>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    // assert.dom(this.element).hasText('555');
+    // assert.dom('.yyy').exists();
   });
 });

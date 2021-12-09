@@ -7,20 +7,17 @@ module('Integration | Component | card/details', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    const cardData = {
+      'Headline': 'fake Headline',
+      'SubHeadline': 'fake Sub-headline'
+    }
+    this.set('Headline', cardData.Headline);
+    this.set('SubHeadline', cardData.SubHeadline);
 
-    await render(hbs`<Card::Details />`);
+    await render(hbs`<Card::Details @headline={{Headline}} @subtitle={{SubHeadline}} />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Card::Details>
-        template block text
-      </Card::Details>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom('.details').exists();
+    assert.dom('[data-test-title]').hasText('fake title');
+    assert.dom('[data-test-subtitle]').hasText('fake subtitle');
   });
 });

@@ -1,8 +1,12 @@
-<div class="container">
-  {{#each this.data as |card|}}
-    <Card @card={{card}} />
-  {{/each}}
-</div>
-{{#unless this.isMobile}}
-  <Pagination @numberOfPages={{numberOfPages}} @onChangePage={{this.onChangePage}} />
-{{/unless}}
+<main>
+  <Header @greeting="{{this.greeting}}"/>
+  <div class="flex justify-center content-between flex-wrap gap-4 p-4">
+    {{#each this.itemsData as |card|}}
+      <Card @card={{card}} />
+    {{/each}}
+  </div>
+  {{#unless this.isMobile}}
+    <Pagination @numberOfPages={{this.numberOfPages}} @activePage={{this.activePage}} @onChangePage={{this.onChangePage}} />
+  {{/unless}}
+</main>
+

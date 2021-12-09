@@ -1,5 +1,7 @@
-<div class="pagination">
-  <FaIcon {{on "click" (fn @onChangePage "prev")}} @icon="angle-left" @size="2x" />
-  <div class="page">{{@numberOfPages}}</div>
-  <FaIcon {{on "click" (fn @onChangePage "next")}} @icon="angle-right" @size="2x" />
+<div class="pagination mb-4">
+  <FaIcon data-test-prev-page {{on "click" (fn @onChangePage "prev")}} class="cursor-pointer" @icon="angle-left" @size="2x" />
+    {{#each (range 0 @numberOfPages) as |number|}}
+      <div class="cursor-pointer page {{if (eq @activePage number) 'page-active'}}" {{on "click" (fn @onChangePage number)}}>{{number}}</div>
+    {{/each}}
+  <FaIcon data-test-next-page {{on "click" (fn @onChangePage "next")}} class="cursor-pointer" @icon="angle-right" @size="2x" />
 </div>
