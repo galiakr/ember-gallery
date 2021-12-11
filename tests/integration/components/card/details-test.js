@@ -8,13 +8,15 @@ module('Integration | Component | card/details', function (hooks) {
 
   test('it renders', async function (assert) {
     const cardData = {
-      'Headline': 'fake Headline',
-      'SubHeadline': 'fake Sub-headline'
-    }
+      Headline: 'fake Headline',
+      SubHeadline: 'fake Sub-headline',
+    };
     this.set('Headline', cardData.Headline);
     this.set('SubHeadline', cardData.SubHeadline);
 
-    await render(hbs`<Card::Details @headline={{Headline}} @subtitle={{SubHeadline}} />`);
+    await render(
+      hbs`<Card::Details @headline={{Headline}} @subtitle={{SubHeadline}} />`
+    );
 
     assert.dom('.details').exists();
     assert.dom('[data-test-title]').hasText('fake title');

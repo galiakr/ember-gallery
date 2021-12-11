@@ -10,6 +10,9 @@ module('Integration | Component | card', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
+    await render(hbs`<Card />`);
+
+    assert.dom(this.element).hasText('');
     // const cardData = {
     //   fields: {
     //     'HeaderImageUrl': 'fake HeaderImageUrl',
@@ -20,7 +23,6 @@ module('Integration | Component | card', function (hooks) {
     // this.set('card', cardData);
     // await render(hbs`<Card @card={{cardData}} />`);
     // await this.pauseTest();
-
     // assert.dom(this.element).hasText('555');
     // assert.dom('.yyy').exists();
   });

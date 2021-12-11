@@ -15,7 +15,8 @@ export default class PageComponent extends Component {
   @tracked greeting = `good ${this.getTimeOfDay()}!`;
 
   @action onChangePage(page) {
-    const isLastPage = page === 'next' && this.activePage === this.numberOfPages;
+    const isLastPage =
+      page === 'next' && this.activePage === this.numberOfPages;
     const isFirstPage = page === 'prev' && this.activePage === 0;
 
     if (isLastPage || isFirstPage) {
@@ -23,18 +24,18 @@ export default class PageComponent extends Component {
     }
 
     if (page === 'next') {
-      this.setActivePage(this.activePage++);
+      this.setActivePage(this.activePage + 1);
       this.setPage(this.firstItemOnPage + CONSTANTS.MAX_ITEMS_PER_PAGE);
     }
 
     if (page === 'prev') {
-      this.setActivePage(this.activePage--);
+      this.setActivePage(this.activePage - 1);
       this.setPage(this.firstItemOnPage - CONSTANTS.MAX_ITEMS_PER_PAGE);
     }
 
     if (Number.isInteger(page)) {
       this.setActivePage(page);
-      this.setPage(page * CONSTANTS.MAX_ITEMS_PER_PAGE)
+      this.setPage(page * CONSTANTS.MAX_ITEMS_PER_PAGE);
     }
     this.itemsData = this.slicePages();
   }
@@ -44,7 +45,10 @@ export default class PageComponent extends Component {
   }
 
   slicePages() {
-    return this.args.model.slice(this.firstItemOnPage, this.firstItemOnPage + CONSTANTS.MAX_ITEMS_PER_PAGE)
+    return this.args.model.slice(
+      this.firstItemOnPage,
+      this.firstItemOnPage + CONSTANTS.MAX_ITEMS_PER_PAGE
+    );
   }
 
   setPage(start) {
