@@ -11,7 +11,7 @@ export default class PageComponent extends Component {
   );
 
   @tracked itemsData = this.isMobile ? this.args.model : this.slicePages();
-  @tracked activePage = 0;
+  @tracked activePage = 1;
   @tracked greeting = `good ${this.getTimeOfDay()}!`;
 
   @action onChangePage(page) {
@@ -35,7 +35,7 @@ export default class PageComponent extends Component {
 
     if (Number.isInteger(page)) {
       this.setActivePage(page);
-      this.setPage(page * CONSTANTS.MAX_ITEMS_PER_PAGE);
+      this.setPage((page -1) * CONSTANTS.MAX_ITEMS_PER_PAGE);
     }
     this.itemsData = this.slicePages();
   }

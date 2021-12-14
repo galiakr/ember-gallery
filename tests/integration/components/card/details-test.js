@@ -8,14 +8,14 @@ module('Integration | Component | card/details', function (hooks) {
 
   test('it renders', async function (assert) {
     const cardData = {
-      Headline: 'fake Headline',
-      SubHeadline: 'fake Sub-headline',
+      title: 'fake title',
+      subtitle: 'fake subtitle',
     };
-    this.set('Headline', cardData.Headline);
-    this.set('SubHeadline', cardData.SubHeadline);
+    this.set('title', cardData.title);
+    this.set('subtitle', cardData.subtitle);
 
     await render(
-      hbs`<Card::Details @headline={{Headline}} @subtitle={{SubHeadline}} />`
+      hbs`<Card::Details @title={{title}} @subtitle={{subtitle}} />`
     );
 
     assert.dom('.details').exists();
